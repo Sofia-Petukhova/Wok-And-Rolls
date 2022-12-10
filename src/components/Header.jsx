@@ -1,11 +1,11 @@
-
+import logo from '../img/logo-3.jpg';
 
 function Header() {
   return (
     <div className="header">
       <div className="container">
         <div className="header__logo">
-          <img width="38" src="../img/arrow-top.svg" alt="roll logo" />
+          <img width="80" src= {logo} alt="roll logo" />
           <div>
             <h1>Wok And Rolls</h1>
             <p>Самые вкусные азиатские блюда c быстрой доставкой</p>

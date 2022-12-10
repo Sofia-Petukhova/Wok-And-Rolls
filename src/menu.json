@@ -1,0 +1,223 @@
+[
+    {
+      "id": 0,
+      "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi-i-rolly/amigos-medium-rectangular-0ecf6bbb4cf54bdca623564c8e2c215f.jpeg",
+      "title": "Амигос",
+      "sauce": [0, 1],
+      "amount": [4, 8, 16],
+      "price": 1200,
+      "category": 1,
+      "rating": 1
+    },
+
+    {
+        "id": 1,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi-i-rolly/klab-khaus-medium-rectangular-2626d86264204009a90bc08c144dc88c.jpeg",
+        "title": "Клаб хаус",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 1000,
+        "category": 1,
+        "rating": 4
+    },
+
+    {
+        "id": 2,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi-i-rolly/zachjotnyjj-medium-rectangular-f0841d4460c04b5686fc9bcb8730dec8.jpeg",
+        "title": "Зачетный",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 1100,
+        "category": 1,
+        "rating": 3
+    },
+
+    {
+        "id": 3,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi-i-rolly/mega-set-1035-g-medium-rectangular-6565847fc52645d0a2046314e1ce4667.jpeg",
+        "title": "Мега-сет",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 1300,
+        "category": 1,
+        "rating": 2
+    },
+
+    {
+        "id": 4,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/rolly/roll-s-bekonom-medium-rectangular-c84fb19204764bd28d7305353c575f56.jpeg",
+        "title": "Ролл с беконом",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 200,
+        "category": 2,
+        "rating": 1
+    },
+
+    {
+        "id": 5,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi/roll-kalifornija-medium-rectangular-79889a88d972498a9abd5717a4a081a0.jpeg",
+        "title": "Калифорния",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 350,
+        "category": 2,
+        "rating": 3
+    },
+
+    {
+        "id": 6,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi-i-rolly/zapechennyjj-roll-kurica-bbq-medium-rectangular-c3b9b301618e4ed183eb4a22dc176f29.jpeg",
+        "title": "Курица BBQ",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 300,
+        "category": 2,
+        "rating": 2
+    },
+
+    {
+        "id": 7,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi-i-rolly/roll-ajjsberg-s-kurinymi-stripsami-medium-rectangular-fd58bf41058c4ff3b2c1511f212292ef.jpeg",
+        "title": "Ролл «Айсберг» с куриными стрипсами",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 330,
+        "category": 2,
+        "rating": 4
+    },
+
+    {
+        "id": 8,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi-i-rolly/ostryjj-set-medium-rectangular-f745d0b5743945099beddba7c6e4f646.jpeg",
+        "title": "Острый сет",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 320,
+        "category": 3,
+        "rating": 3
+    },
+
+    {
+        "id": 9,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi-i-rolly/zapechennyjj-set-medium-rectangular-b1cddc757c274adfbeeaf08af3136373.jpeg",
+        "title": "Запеченный сет",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 320,
+        "category": 3,
+        "rating": 2
+    },
+
+    {
+        "id": 10,
+        "imageUrl": "https://x100-venus-sm-ru.gumlet.io/SKU/SUSHI-MASTER/Суши и гунканы/BAB5DCD1-FB57-11EC-BD01-41982C07A620-гункан-запечёный-с-лососем__23354.jpg?alt=media&token=3e358ce6-4e6d-46c7-b44c-9730879db7a1&w=800&format=webp&mode=fit&q=59",
+        "title": "Гункан Сяке Хот",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 120,
+        "category": 3,
+        "rating": 4
+    },
+
+    {
+        "id": 11,
+        "imageUrl": "https://x100-venus-sm-ru.gumlet.io/SKU/SUSHI-MASTER/Суши и гунканы/DCDFBE21-FB57-11EC-99FF-19A048D4557E-суши_унаги.jpg?alt=media&token=19e4bfdd-c110-4ba7-ae19-d9c11c2c52a5&w=800&format=webp&mode=fit&q=59",
+        "title": "Суши Унаги",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 320,
+        "category": 3,
+        "rating": 1
+    },
+
+    {
+        "id": 12,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/wok/kurica-terijaki-s-risom-medium-rectangular-78f92bd3548c41c89b6a71c916ff6e8f.jpeg",
+        "title": "Курица терияки с рисом",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 290,
+        "category": 4,
+        "rating": 2
+    },
+
+    {
+        "id": 13,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/wok/ovoshhi-s-lapshojj-udon-medium-rectangular-aeee69e69b79436bac2bc7f21d928ec5.jpeg",
+        "title": "Овощи с лапшой удон",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 250,
+        "category": 4,
+        "rating": 1
+    },
+
+    {
+        "id": 14,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/wok/govjadina-s-lapshojj-udon-medium-rectangular-d499b22f8a064afa965c33fd962356a3.jpeg",
+        "title": "Говядина с лапшой удон",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 320,
+        "category": 4,
+        "rating": 3
+    },
+
+    {
+        "id": 15,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/wok/moreprodukty-s-lapshojj-udon-medium-rectangular-06cc1849e6484d65a0983259c71037f8.jpeg",
+        "title": "Морепродукты с лапшой удон",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 470,
+        "category": 4,
+        "rating": 4
+    },
+
+    {
+        "id": 16,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/napitki/lipton-ice-tea-zelenyjj-kholodnyjj-chajj-1-l-medium-rectangular-33a6434ef28042ebacd2ac1cd7cd223c.jpeg",
+        "title": "Lipton Ice Tea Зеленый холодный чай 1 л",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 180,
+        "category": 5,
+        "rating": 1
+    },
+
+    {
+        "id": 17,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/napitki/lipton-ice-tea-limon-kholodnyjj-chajj-1-l-medium-rectangular-a8e101ba1ff64ffb9fece07a21bd2876.jpeg",
+        "title": "Lipton Ice Tea Лимон холодный чай 1 л",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 180,
+        "category": 5,
+        "rating": 3
+    },
+
+    {
+        "id": 18,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/napitki/sok-ja-vishnja-097-l-medium-rectangular-4b1fae7633384d648e6ce868472d2f24.jpeg",
+        "title": "Сок «Я» вишня 0,97 л",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 190,
+        "category": 5,
+        "rating": 4
+    },
+
+    {
+        "id": 19,
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/napitki/napitok-chernogolovka-kola-05-l-medium-rectangular-47effc43eec2402e8510eb9710e938cb.jpeg",
+        "title": "Напиток «Черноголовка» Кола 0,5 л",
+        "sauce": [0, 1],
+        "amount": [4, 8, 16],
+        "price": 150,
+        "category": 5,
+        "rating": 2
+    }
+
+]
+    

@@ -4,6 +4,7 @@ import Header from './components/Header.jsx'
 import Categories from './components/Categories.jsx'
 import Sort from './components/Sort.jsx'
 import ProductCard from './components/ProductCard.jsx'
+import menu from './menu.json'
 
 function App() {
   return (
@@ -17,15 +18,14 @@ function App() {
           </div>
           <h2 className="content__title">Вcе и сразу</h2>
           <div className="content__items">
-            <ProductCard title="roll" price={500}/>
-            <ProductCard title="roll" price={500}/>
-            <ProductCard title="roll" price={500}/>
-            <ProductCard title="roll" price={500}/>
-            <ProductCard title="roll" price={500}/>
-            <ProductCard title="roll" price={500}/>
-            <ProductCard title="roll" price={500}/>
-            <ProductCard title="roll" price={500}/>
-            <ProductCard title="roll" price={500}/>
+            {
+              menu.map((dish) => (
+                <ProductCard
+                key={dish.id} 
+                dish={dish}
+                />
+              ))
+            }
           </div>
         </div>
       </div>

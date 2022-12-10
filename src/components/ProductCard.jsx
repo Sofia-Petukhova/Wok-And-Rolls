@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
 
-function ProductCard({title, price}) {
-  
+function ProductCard({dish}) {
+
+  const {
+    id, 
+    imageUrl,
+    title,
+    sauce,
+    amount,
+    price,
+    category,
+    rating} = dish;
+
   const [Count, setCount] = useState(0);
   const onClickAdd = () => {
     setCount(Count + 1);
   }
 
+
   return (
     <div className="product-card">
       <img
         className="product-card__image"
-        src=""
+        src={imageUrl}
         alt="roll"
       />
       <h4 className="product-card__title">{title}</h4>
