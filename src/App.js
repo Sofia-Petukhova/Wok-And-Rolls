@@ -20,9 +20,8 @@ function App() {
           <div className="content__items">
             {
               menu.map((dish) => (
-                <ProductCard
-                key={dish.id} 
-                dish={dish}
+                <ProductCard key={dish.id}
+                {... dish}
                 />
               ))
             }

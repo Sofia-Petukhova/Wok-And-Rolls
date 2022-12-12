@@ -79,7 +79,7 @@
     {
         "id": 7,
         "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi-i-rolly/roll-ajjsberg-s-kurinymi-stripsami-medium-rectangular-fd58bf41058c4ff3b2c1511f212292ef.jpeg",
-        "title": "Ролл «Айсберг» с куриными стрипсами",
+        "title": "Ролл «Айсберг»",
         "sauce": [0, 1],
         "amount": [4, 8, 16],
         "price": 330,
@@ -111,8 +111,8 @@
 
     {
         "id": 10,
-        "imageUrl": "https://x100-venus-sm-ru.gumlet.io/SKU/SUSHI-MASTER/Суши и гунканы/BAB5DCD1-FB57-11EC-BD01-41982C07A620-гункан-запечёный-с-лососем__23354.jpg?alt=media&token=3e358ce6-4e6d-46c7-b44c-9730879db7a1&w=800&format=webp&mode=fit&q=59",
-        "title": "Гункан Сяке Хот",
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi-i-rolly/ostryjj-set-medium-rectangular-f745d0b5743945099beddba7c6e4f646.jpeg",
+        "title": "Еще один сет",
         "sauce": [0, 1],
         "amount": [4, 8, 16],
         "price": 120,
@@ -122,7 +122,7 @@
 
     {
         "id": 11,
-        "imageUrl": "https://x100-venus-sm-ru.gumlet.io/SKU/SUSHI-MASTER/Суши и гунканы/DCDFBE21-FB57-11EC-99FF-19A048D4557E-суши_унаги.jpg?alt=media&token=19e4bfdd-c110-4ba7-ae19-d9c11c2c52a5&w=800&format=webp&mode=fit&q=59",
+        "imageUrl": "https://cdn.dostaevsky.ru/storage/dostaevsky/sushi-i-rolly/zapechennyjj-set-medium-rectangular-b1cddc757c274adfbeeaf08af3136373.jpeg",
         "title": "Суши Унаги",
         "sauce": [0, 1],
         "amount": [4, 8, 16],

@@ -1,45 +1,53 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
-function ProductCard({dish}) {
+function ProductCard({imageUrl, title, sauce, amount, price}) {
 
-  const {
-    id, 
-    imageUrl,
-    title,
-    sauce,
-    amount,
-    price,
-    category,
-    rating} = dish;
+    const sauceNames = ['васаби', 'соевый соус'];
 
-  const [Count, setCount] = useState(0);
-  const onClickAdd = () => {
-    setCount(Count + 1);
-  }
-
-
+    const [activeAmount, setActiveAmount] = useState(0);
+    const [activeSauce, setActiveSauce] = useState(0);
+    
   return (
     <div className="product-card">
       <img
         className="product-card__image"
         src={imageUrl}
-        alt="roll"
+        alt="roll" 
+
+        
       />
       <h4 className="product-card__title">{title}</h4>
       <div className="product-card__selector">
       <ul>
-          <li className="active">васаби</li>
-          <li>соевый соус</li>
+      {
+            sauce.map((sauceId) => (
+              <li
+                key={sauceId} 
+                onClick = {() => setActiveSauce(sauceId)}
+                className= {activeSauce === sauceId ? "active" : ''}
+              >
+                  {sauceNames[sauceId]}
+              </li>
+            ))
+          }
         </ul>
         <ul>
-          <li className="active">4 шт</li>
-          <li>8 шт</li>
-          <li>16 шт</li>
+          {
+            amount.map( (amount, index) => (
+              <li 
+              key={amount} 
+              onClick = {() => setActiveAmount(index)}
+                className= {activeAmount === index ? "active" : ''}
+              >
+                {amount} шт
+              </li>
+            ))
+          }
         </ul>
       </div>
       <div className="product-card__bottom">
         <div className="product-card__price">{price}</div>
-        <button onClick={onClickAdd} className="button button--outline button--add">
+        <button className="button button--outline button--add">
           <svg
             width="12"
             height="12"
@@ -53,7 +61,7 @@ function ProductCard({dish}) {
             />
           </svg>
           <span>Добавить</span>
-          <i>{Count}</i>
+          <i>0</i>
         </button>
       </div>
     </div>
