@@ -13,8 +13,6 @@ function ProductCard({imageUrl, title, sauce, amount, price}) {
         className="product-card__image"
         src={imageUrl}
         alt="roll" 
-
-        
       />
       <h4 className="product-card__title">{title}</h4>
       <div className="product-card__selector">

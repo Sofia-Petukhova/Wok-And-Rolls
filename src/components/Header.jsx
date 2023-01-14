@@ -1,18 +1,22 @@
+import {Link} from 'react-router-dom'
+
 import logo from '../img/logo-3.jpg';
 
 function Header() {
   return (
     <div className="header">
       <div className="container">
-        <div className="header__logo">
-          <img width="80" src= {logo} alt="roll logo" />
-          <div>
-            <h1>Wok And Rolls</h1>
-            <p>Самые вкусные азиатские блюда c быстрой доставкой</p>
+        <Link to='/'>
+          <div className="header__logo">
+            <img width="80" src= {logo} alt="roll logo" />
+            <div>
+              <h1>Wok And Rolls</h1>
+              <p>Самые вкусные азиатские блюда c быстрой доставкой</p>
+            </div>
           </div>
-        </div>
+        </Link>
         <div className="header__cart">
-          <a href="/cart.html" className="button button--cart">
+          <Link to="/cart" className="button button--cart">
             <span>520 ₽</span>
             <div className="button__delimiter"></div>
             <svg
@@ -45,7 +49,7 @@ function Header() {
               />
             </svg>
             <span>3</span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

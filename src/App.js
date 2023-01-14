@@ -1,31 +1,25 @@
 import React from 'react'; 
 import './scss/app.scss'
 import Header from './components/Header.jsx'
-import Categories from './components/Categories.jsx'
-import Sort from './components/Sort.jsx'
-import ProductCard from './components/ProductCard.jsx'
-import menu from './menu.json'
+import Home from './pages/Home.jsx'
+import Cart from './pages/Cart.jsx'
+import NotFoundPage from './pages/NotFoundPage.jsx'
+import { Routes, Route} from 'react-router-dom'
+
 
 function App() {
+
+
   return (
     <div className="wrapper">
       <Header />
       <div className="content">
         <div className="container">
-          <div className="content__top">
-            <Categories />
-            <Sort />
-          </div>
-          <h2 className="content__title">Вcе и сразу</h2>
-          <div className="content__items">
-            {
-              menu.map((dish) => (
-                <ProductCard key={dish.id}
-                {... dish}
-                />
-              ))
-            }
-          </div>
+        <Routes>
+          <Route path="/" element={<Home/>}></Route>
+          <Route path="/cart" element={<Cart/>}></Route>
+          <Route path="*" element={<NotFoundPage/>}></Route>
+        </Routes>
         </div>
       </div>
     </div>
