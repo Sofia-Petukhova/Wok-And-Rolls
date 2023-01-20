@@ -8,7 +8,8 @@ function ProductCard({imageUrl, title, sauce, amount, price}) {
     const [activeSauce, setActiveSauce] = useState(0);
     
   return (
-    <div className="product-card">
+    <div className="product-card-wrapper">
+      <div className="product-card">
       <img
         className="product-card__image"
         src={imageUrl}
@@ -16,8 +17,8 @@ function ProductCard({imageUrl, title, sauce, amount, price}) {
       />
       <h4 className="product-card__title">{title}</h4>
       <div className="product-card__selector">
-      <ul>
-      {
+        <ul>
+          {
             sauce.map((sauceId) => (
               <li
                 key={sauceId} 
@@ -62,6 +63,7 @@ function ProductCard({imageUrl, title, sauce, amount, price}) {
           <i>0</i>
         </button>
       </div>
+    </div>
     </div>
   )
 }

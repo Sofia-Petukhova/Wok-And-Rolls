@@ -14,14 +14,14 @@ function App() {
     <div className="wrapper">
       <Header />
       <div className="content">
-        <div className="container">
+        
         <Routes>
           <Route path="/" element={<Home/>}></Route>
           <Route path="/cart" element={<Cart/>}></Route>
           <Route path="*" element={<NotFoundPage/>}></Route>
         </Routes>
         </div>
-      </div>
+      
     </div>
   );
 }
