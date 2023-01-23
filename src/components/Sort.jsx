@@ -14,6 +14,7 @@ function Sort() {
   return(
     <div className="sort">
       <div className="sort__label">
+        <div className="sort__label-wrapper">
         <svg
           width="10"
           height="6"
@@ -27,6 +28,7 @@ function Sort() {
           />
         </svg>
         <b>Сортировка по:</b>
+        </div>
         <span onClick={() => setOpen(!open)}>{list[selected]}</span>
       </div>
       { open && (
