@@ -33,20 +33,20 @@ function Sort() {
       </div>
       { open && (
         <div className="sort__popup">
-        <ul>
-        {
-            list.map((listName, index) => (
-              <li
-                key={listName} 
-                onClick = {() => activeList(index)}
-                className= {selected === index ? "active" : ''}
-              >
-                  {listName}
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+          <ul>
+            {
+              list.map((listName, index) => (
+                <li
+                  key={listName} 
+                  onClick = {() => activeList(index)}
+                  className= {selected === index ? "active" : ''}
+                >
+                    {listName}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       )}
     </div>
   )
