@@ -30,7 +30,7 @@
     border-radius: 10px;
     overflow: hidden;
     padding: 10px 0;
-    width: 160px;
+    width: 165px;
 
     ul {
       overflow: hidden;
@@ -40,7 +40,7 @@
 
         &.active,
         &:hover {
-          background: rgba(254, 95, 30, 0.05);
+          background: rgba(183, 30, 254, 0.05);
         }
 
         &.active {

@@ -178,11 +178,11 @@ body {
       }
     }
 
-    @media (max-width: 348px) {
+    @media (max-width: 362px) {
       .sort__label { 
         
         flex-direction: column;
-        align-items: center;
+        align-items: end;
         min-width: 140px;
         b {
           margin-right: 0;
