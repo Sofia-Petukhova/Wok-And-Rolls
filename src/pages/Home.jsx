@@ -1,5 +1,6 @@
 import React,  {useState, useEffect} from 'react';
 
+import { SearchContext } from '../App';
 import Categories from '../components/Categories.jsx'
 import Sort from '../components/Sort.jsx'
 import ProductCard from '../components/ProductCard/ProductCard.jsx'
@@ -7,7 +8,8 @@ import Placeholder from '../components/ProductCard/Placeholder.jsx'
 import Pagination from '../components/Pagination/Pagination.jsx'
 
 
- const Home = ({searchValue}) => {
+ const Home = () => {
+    const {searchValue} = React.useContext(SearchContext);
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [categoryId, setCategoryId] = useState(0);
@@ -26,7 +28,7 @@ import Pagination from '../components/Pagination/Pagination.jsx'
 
   // limit = 16
     fetch(
-      `https://63a6c641f8f3f6d4ab11fc8d.mockapi.io/items?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
+      `https://63a6c641f8f3f6d4ab11fc8d.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`
     )
     .then((res) => 
         res.json())
