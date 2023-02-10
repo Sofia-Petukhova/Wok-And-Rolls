@@ -1,4 +1,5 @@
 import React,  {useState, useEffect, useContext} from 'react';
+import axios from 'axios';
 
 import { SearchContext } from '../App';
 import Categories from '../components/Categories.jsx'
@@ -8,7 +9,7 @@ import Placeholder from '../components/ProductCard/Placeholder.jsx'
 import Pagination from '../components/Pagination/Pagination.jsx'
 
 import { useSelector, useDispatch } from 'react-redux';
-import {setCategoryId} from '../redux/slices/filterSlice'
+import {setCategoryId, setCurrentPage} from '../redux/slices/filterSlice'
 
 
   const Home = () => {
@@ -16,14 +17,18 @@ import {setCategoryId} from '../redux/slices/filterSlice'
     const {searchValue} = useContext(SearchContext);
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [currentPage, setCurrentPage] = useState(1);
   
     const dispatch = useDispatch();
     const categoryId = useSelector(({filter}) => filter.categoryId)
     const sortType = useSelector(({filter}) => filter.sort.sortProperty)
+    const currentPage = useSelector(({filter}) => filter.currentPage)
 
     const onClickCategory = (id) => {
        dispatch(setCategoryId(id))
+    }
+
+    const onChangePage = number =>{
+      dispatch(setCurrentPage(number))
     }
 
     useEffect(() => {
@@ -33,16 +38,14 @@ import {setCategoryId} from '../redux/slices/filterSlice'
       const category = categoryId > 0 ? `category=${categoryId}` : '';
       const search = searchValue ? `&search=${searchValue}` : '';
 
-      // limit = 16
-      fetch(
-        `https://63a6c641f8f3f6d4ab11fc8d.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`
-      )
-      .then((res) => 
-          res.json())
-      .then((arr) => {
-        setItems(arr);
-        setIsLoading(false);  
-      });
+      axios
+        .get(`https://63a6c641f8f3f6d4ab11fc8d.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`)
+
+        .then((response) => {
+          setItems(response.data);
+          setIsLoading(false); 
+        })
+
       window.scrollTo(0, 0);
     }, [categoryId, sortType, searchValue, currentPage])
   
@@ -59,7 +62,7 @@ import {setCategoryId} from '../redux/slices/filterSlice'
         <div className="content__items">
           { isLoading ? placeholders : dishes }
         </div>
-        <Pagination onChangePage={number => setCurrentPage(number)}/>
+        <Pagination currentPage={currentPage} onChangePage={onChangePage}/>
       </div>
     )
   }

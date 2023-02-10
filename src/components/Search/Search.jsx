@@ -1,11 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef, useCallback, useState } from 'react';
+import debounce from 'lodash.debounce'
 import { SearchContext } from '../../App';
-
 import  styles from '../Search/Search.module.scss';
 
 const Search = () => {
+    const [value, setValue] = useState('');
     const {searchValue, setSearchValue} = useContext(SearchContext);
+    const inputRef = useRef();
 
+    const onClickClear = () => {
+        setSearchValue('');
+        setValue('');
+        inputRef.current.focus();
+    }
+   
+    const updateSearchValue = useCallback(
+        debounce((str) => {
+             setSearchValue(str);
+        }, 500),
+      []);
+
+    const onChangeInput = event => {
+        setValue(event.target.value);
+        updateSearchValue(event.target.value);
+    }
     return (
         <div className ={styles.root}>
             <svg className={styles.icon} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -15,13 +33,14 @@ const Search = () => {
                     </g>
             </svg>
             <input 
-                value={searchValue}
-                onChange = {(event) => setSearchValue(event.target.value)} 
+                ref = {inputRef}
+                value={value}
+                onChange = {onChangeInput} 
                 className = {styles.input} 
                 placeholder = "Поиск по названию..."
             />
             {searchValue && (
-                <svg onClick={() => setSearchValue('')} className = {styles.clearIcon} height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
+                <svg onClick={onClickClear} className = {styles.clearIcon} height="48" viewBox="0 0 48 48" width="48" xmlns="http://www.w3.org/2000/svg">
                 <path d="M38 12.83l-2.83-2.83-11.17 11.17-11.17-11.17-2.83 2.83 11.17 11.17-11.17 11.17 2.83 2.83 11.17-11.17 11.17 11.17 2.83-2.83-11.17-11.17z"/>
                 <path d="M0 0h48v48h-48z" fill="none"/>
             </svg>
