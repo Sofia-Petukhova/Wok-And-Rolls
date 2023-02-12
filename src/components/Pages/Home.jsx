@@ -1,70 +1,85 @@
-import React,  {useState, useEffect, useContext} from 'react';
-import axios from 'axios';
+import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
 
-import { SearchContext } from '../../App';
-import Categories from '../Categories.jsx'
-import Sort from '../Sort.jsx'
-import ProductCard from '../ProductCard/ProductCard.jsx'
-import Placeholder from '../ProductCard/Placeholder.jsx'
-import Pagination from '../Pagination/Pagination.jsx'
+import { SearchContext } from "../../App";
+import Categories from "../Categories.jsx";
+import Sort from "../Sort.jsx";
+import ProductCard from "../ProductCard/ProductCard.jsx";
+import Placeholder from "../ProductCard/Placeholder.jsx";
+import Pagination from "../Pagination/Pagination.jsx";
 
-import { useSelector, useDispatch } from 'react-redux';
-import {setCategoryId, setCurrentPage} from '../../redux/slices/filterSlice'
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setCategory,
+  setCurrentPage,
+  selectCategoryId,
+  selectSortProperty,
+  selectCurrentPage,
+  selectCategoryTitle,
+} from "../../redux/slices/filterSlice";
 
-
-  const Home = () => {
-
-    const {searchValue} = useContext(SearchContext);
-    const [items, setItems] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+const Home = () => {
+  const dispatch = useDispatch();
   
-    const dispatch = useDispatch();
-    const categoryId = useSelector(({filter}) => filter.categoryId)
-    const sortType = useSelector(({filter}) => filter.sort.sortProperty)
-    const currentPage = useSelector(({filter}) => filter.currentPage)
+  const categoryId = useSelector(selectCategoryId);
+  const sortType = useSelector(selectSortProperty);
+  const currentPage = useSelector(selectCurrentPage);
+  const activCategory = useSelector(selectCategoryTitle);
 
-    const onClickCategory = (id) => {
-       dispatch(setCategoryId(id))
-    }
+  const { searchValue } = useContext(SearchContext);
+  const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    const onChangePage = number =>{
-      dispatch(setCurrentPage(number))
-    }
+  const onChangePage = (number) => {
+    dispatch(setCurrentPage(number));
+  };
 
-    useEffect(() => {
-      setIsLoading(true); 
-      const sortBy =  sortType.replace('-', '');
-      const order = sortType.includes('-') ? 'asc' : 'desc';
-      const category = categoryId > 0 ? `category=${categoryId}` : '';
-      const search = searchValue ? `&search=${searchValue}` : '';
+  const onClickCategory = (categoryTitle, categoryId) => {
+    dispatch(
+      setCategory({
+        categoryId,
+        categoryTitle,
+      })
+    );
+    onChangePage(1);
+  };
 
-      axios
-        .get(`https://63a6c641f8f3f6d4ab11fc8d.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`)
+  useEffect(() => {
+    setIsLoading(true);
+    const sortBy = sortType.replace("-", "");
+    const order = sortType.includes("-") ? "asc" : "desc";
+    const category = categoryId > 0 ? `category=${categoryId}` : "";
+    const search = searchValue ? `&search=${searchValue}` : "";
 
-        .then((response) => {
-          setItems(response.data);
-          setIsLoading(false); 
-        })
+    axios
+      .get(
+        `https://63a6c641f8f3f6d4ab11fc8d.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`
+      )
 
-      window.scrollTo(0, 0);
-    }, [categoryId, sortType, searchValue, currentPage])
-  
-    const dishes = items.map((dish) => (<ProductCard key={dish.id} {... dish}/>))
-    const placeholders = [...new Array(6)].map((_, index) => <Placeholder key={index}/>) ;
+      .then((response) => {
+        setItems(response.data);
+        setIsLoading(false);
+      });
 
-    return (
-      <div className="container">
-        <div className="content__top">
-          <Categories categoryId={categoryId} onClickCategory = {onClickCategory}/>
-          <Sort />
-        </div>
-        <h2 className="content__title">Вcе и сразу</h2>
-        <div className="content__items">
-          { isLoading ? placeholders : dishes }
-        </div>
-        <Pagination currentPage={currentPage} onChangePage={onChangePage}/>
+    window.scrollTo(0, 0);
+  }, [categoryId, sortType, searchValue, currentPage]);
+
+  const dishes = items.map((dish) => <ProductCard key={dish.id} {...dish} />);
+  const placeholders = [...new Array(6)].map((_, index) => (
+    <Placeholder key={index} />
+  ));
+
+  return (
+    <div className="container">
+      <div className="content__top">
+        <Categories categoryId={categoryId} onClickCategory={onClickCategory} />
+        <Sort />
       </div>
-    )
-  }
+      <h2 className="content__title">{activCategory}</h2>
+      <div className="content__items">{isLoading ? placeholders : dishes}</div>
+      <Pagination currentPage={currentPage} onChangePage={onChangePage} />
+    </div>
+  );
+};
 
 export default Home;

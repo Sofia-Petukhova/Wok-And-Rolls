@@ -1,14 +1,24 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import logo from "../img/logo.png";
+import { setCategory } from "../redux/slices/filterSlice";
 import Search from "./Search/Search.jsx";
 
 function Header() {
+  const dispatch = useDispatch();
+  const resetCategory = () => {
+    dispatch(setCategory({
+      categoryId: 0,
+      categoryTitle: 'Все',
+    }));
+  };
+
   return (
     <div className="header">
       <div className="container">
-        <Link to="/">
+        <Link to="/" onClick={resetCategory}>
           <div className="header__logo">
             <img width="80" src={logo} alt="roll logo" />
             <div>
