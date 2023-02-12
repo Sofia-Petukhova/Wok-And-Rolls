@@ -1,15 +1,15 @@
 import React,  {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
 
-import { SearchContext } from '../App';
-import Categories from '../components/Categories.jsx'
-import Sort from '../components/Sort.jsx'
-import ProductCard from '../components/ProductCard/ProductCard.jsx'
-import Placeholder from '../components/ProductCard/Placeholder.jsx'
-import Pagination from '../components/Pagination/Pagination.jsx'
+import { SearchContext } from '../../App';
+import Categories from '../Categories.jsx'
+import Sort from '../Sort.jsx'
+import ProductCard from '../ProductCard/ProductCard.jsx'
+import Placeholder from '../ProductCard/Placeholder.jsx'
+import Pagination from '../Pagination/Pagination.jsx'
 
 import { useSelector, useDispatch } from 'react-redux';
-import {setCategoryId, setCurrentPage} from '../redux/slices/filterSlice'
+import {setCategoryId, setCurrentPage} from '../../redux/slices/filterSlice'
 
 
   const Home = () => {

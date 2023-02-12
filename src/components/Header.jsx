@@ -1,16 +1,16 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-import logo from '../img/logo.png';
-import Search from "./Search/Search.jsx"
+import logo from "../img/logo.png";
+import Search from "./Search/Search.jsx";
 
 function Header() {
   return (
     <div className="header">
       <div className="container">
-        <Link to='/'>
+        <Link to="/">
           <div className="header__logo">
-            <img width="80" src= {logo} alt="roll logo" />
+            <img width="80" src={logo} alt="roll logo" />
             <div>
               <h1>Wok And Rolls</h1>
               <p>Самые вкусные азиатские блюда c быстрой доставкой</p>
@@ -56,8 +56,7 @@ function Header() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
 
 export default Header;
