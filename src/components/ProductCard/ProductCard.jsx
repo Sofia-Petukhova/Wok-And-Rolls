@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 
-function ProductCard({ imageUrl, title, sauce, amount, price }) {
-  const sauceNames = ["васаби", "соевый соус"];
-
+function ProductCard({ imageUrl, title, sauces, amount, price }) {
   const [activeAmount, setActiveAmount] = useState(0);
-  const [activeSauce, setActiveSauce] = useState(0);
+  const [activeSauce, setActiveSauce] = useState(sauces[0]);
+  const isSaucesLength = sauces.length !== 0;
 
   return (
     <div className="product-card-wrapper">
@@ -12,18 +11,20 @@ function ProductCard({ imageUrl, title, sauce, amount, price }) {
         <img className="product-card__image" src={imageUrl} alt="roll" />
         <h4 className="product-card__title">{title}</h4>
         <div className="product-card__selector">
-          <ul>
-            {sauce.map((sauceId) => (
-              <li
-                key={sauceId}
-                onClick={() => setActiveSauce(sauceId)}
-                className={activeSauce === sauceId ? "active" : ""}
-              >
-                {sauceNames[sauceId]}
-              </li>
-            ))}
-          </ul>
-          <ul>
+          {isSaucesLength && (
+            <ul>
+              {sauces.map((sauce) => (
+                <li
+                  key={sauce}
+                  onClick={() => setActiveSauce(sauce)}
+                  className={activeSauce === sauce ? "active" : ""}
+                >
+                  {sauce}
+                </li>
+              ))}
+            </ul>
+          )}
+          <ul className={!isSaucesLength && "product-card__amount-drink"}>
             {amount.map((amount, index) => (
               <li
                 key={amount}
@@ -35,7 +36,7 @@ function ProductCard({ imageUrl, title, sauce, amount, price }) {
             ))}
           </ul>
         </div>
-        <div className="product-card__bottom">
+        <div className={isSaucesLength ? "product-card__bottom" : "product-card__bottom-drink"}>
           <div className="product-card__price">{price}</div>
           <button className="button button--outline button--add">
             <svg

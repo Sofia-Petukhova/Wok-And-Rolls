@@ -1,10 +1,10 @@
-@import '../variables';
+@import "../variables";
 
 .product-card {
   width: 280px;
   text-align: center;
   margin-bottom: 65px;
-  
+
   &-wrapper {
     display: flex;
     text-align: center;
@@ -54,13 +54,22 @@
         }
       }
     }
+
+    .product-card__amount-drink {
+      margin-bottom: 0 !important;
+    }
   }
 
-  &__bottom {
+  &__bottom,
+  &__bottom-drink {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
+  }
+
+  &__bottom-drink {
+    margin-top: 55px;
   }
 
   &__price {

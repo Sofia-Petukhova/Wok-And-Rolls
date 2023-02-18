@@ -8,7 +8,7 @@ export const selectCategoryTitle = ({ filter }) => filter.categoryTitle;
 const initialState = {
   categoryId: 0,
   categoryTitle: "Все",
-  currentPage: 1,
+  currentPage: 1, 
   sort: { name: "популярности ↓", sortProperty: "rating" },
 };
 
