@@ -21,11 +21,11 @@ const filterSlice = createSlice({
       state.categoryId = categoryId;
       state.categoryTitle = categoryTitle;
     },
-    setSort(state, action) {
-      state.sort = action.payload;
+    setSort(state, { payload }) {
+      state.sort = payload;
     },
-    setCurrentPage(state, action) {
-      state.currentPage = action.payload;
+    setCurrentPage(state, { payload }) {
+      state.currentPage = payload;
     },
   },
 });

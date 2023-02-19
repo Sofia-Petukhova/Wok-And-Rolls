@@ -31,7 +31,7 @@ function ProductCard({ imageUrl, title, sauces, amount, price }) {
                 onClick={() => setActiveAmount(index)}
                 className={activeAmount === index ? "active" : ""}
               >
-                {amount} шт
+                {amount}
               </li>
             ))}
           </ul>
