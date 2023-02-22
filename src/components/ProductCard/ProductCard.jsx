@@ -1,9 +1,35 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addProduct, selectProducts } from "../../redux/slices/cartSlice";
 
-function ProductCard({ imageUrl, title, sauces, amount, price }) {
-  const [activeAmount, setActiveAmount] = useState(0);
+function ProductCard({ id, imageUrl, title, sauces, amount, price }) {
+  const dispatch = useDispatch();
+  const products = useSelector(selectProducts);
   const [activeSauce, setActiveSauce] = useState(sauces[0]);
+  const [activeAmount, setActiveAmount] = useState(0);
   const isSaucesLength = sauces.length !== 0;
+  
+  const onClickAdd = () => {
+    const product = {
+      id,
+      title,
+      price,
+      imageUrl,
+      sauce: activeSauce,
+      amount: activeAmount,
+    };
+    dispatch(addProduct(product));
+  };
+
+const handleProductCounter = () => {
+   const count = products.reduce((acc, product) => {
+    if (id === product.id) {
+      return acc = acc + product.count
+    }
+    return acc
+   }, 0)
+   return (count || 0)
+}
 
   return (
     <div className="product-card-wrapper">
@@ -24,7 +50,7 @@ function ProductCard({ imageUrl, title, sauces, amount, price }) {
               ))}
             </ul>
           )}
-          <ul className={!isSaucesLength && "product-card__amount-drink"}>
+          <ul className={!isSaucesLength ? "product-card__amount-drink" : ""}>
             {amount.map((amount, index) => (
               <li
                 key={amount}
@@ -36,9 +62,18 @@ function ProductCard({ imageUrl, title, sauces, amount, price }) {
             ))}
           </ul>
         </div>
-        <div className={isSaucesLength ? "product-card__bottom" : "product-card__bottom-drink"}>
+        <div
+          className={
+            isSaucesLength
+              ? "product-card__bottom"
+              : "product-card__bottom-drink"
+          }
+        >
           <div className="product-card__price">{price}</div>
-          <button className="button button--outline button--add">
+          <button
+            onClick={onClickAdd}
+            className="button button--outline button--add"
+          >
             <svg
               width="12"
               height="12"
@@ -52,7 +87,7 @@ function ProductCard({ imageUrl, title, sauces, amount, price }) {
               />
             </svg>
             <span>Добавить</span>
-            <i>0</i>
+            <i>{handleProductCounter()}</i>
           </button>
         </div>
       </div>
