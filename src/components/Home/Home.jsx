@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 import { SearchContext } from "../../App";
-import Categories from "../Categories.jsx";
-import Sort from "../Sort.jsx";
+import Categories from "../Categories/Categories";
+import Sort from "../Sort/Sort.jsx";
 import ProductCard from "../ProductCard/ProductCard.jsx";
 import Placeholder from "../ProductCard/Placeholder.jsx";
 import Pagination from "../Pagination/Pagination.jsx";

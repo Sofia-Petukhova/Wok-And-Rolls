@@ -3,13 +3,19 @@
 .product-card {
   width: 280px;
   text-align: center;
-  margin-bottom: 65px;
+  
+  
+  
 
   &-wrapper {
     display: flex;
     text-align: center;
     justify-content: center;
-    width: 280px;
+    width: 310px;
+    padding: 20px 0;
+    border-radius: 10px;
+    
+    background-color: #fff;
   }
 
   &__image {

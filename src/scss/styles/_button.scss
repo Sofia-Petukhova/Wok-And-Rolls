@@ -134,6 +134,8 @@
     align-items: center;
     line-height: 23px;
     padding: 12px 25px;
+    background-color: rgba(143, 65, 214, 0.95);
+    border: 1px solid #fcfcfc;
 
     svg {
       margin-right: 8px;
@@ -143,6 +145,10 @@
     span {
       font-weight: 600;
       font-size: 16px;
+    }
+
+    &:hover {
+      background-color: rgb(124, 55, 188);
     }
   }
 }

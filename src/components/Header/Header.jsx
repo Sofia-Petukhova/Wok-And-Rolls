@@ -2,10 +2,10 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import logo from "../img/logo.png";
-import { selectTotalCount, selectTotalPrice } from "../redux/slices/cartSlice";
-import { setCategory } from "../redux/slices/filterSlice";
-import Search from "./Search/Search.jsx";
+import logo from "../../img/logo.png";
+import { selectTotalCount, selectTotalPrice } from "../../redux/slices/cartSlice";
+import { setCategory } from "../../redux/slices/filterSlice";
+import Search from "../Search/Search.jsx";
 
 function Header() {
   const dispatch = useDispatch();

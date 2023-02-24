@@ -69,7 +69,7 @@ const handleProductCounter = () => {
               : "product-card__bottom-drink"
           }
         >
-          <div className="product-card__price">{price}</div>
+          <div className="product-card__price">{price} ₽</div>
           <button
             onClick={onClickAdd}
             className="button button--outline button--add"

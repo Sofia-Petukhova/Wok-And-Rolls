@@ -9,9 +9,10 @@
     }
     
     li {
-      background-color: #f9f9f9;
+      background-color:#ffffff;
       padding: 13px 30px;
       border-radius: 30px;
+      border: 1px solid darken(#f9f9f9, 10%);
       
       font-weight: bold;
       cursor: pointer;
@@ -19,7 +20,7 @@
       @include noselect();
 
       &:hover {
-        background-color: darken(#f9f9f9, 2%);
+        background-color: darken(#f9f9f9, 10%);
       }
 
       &:active {

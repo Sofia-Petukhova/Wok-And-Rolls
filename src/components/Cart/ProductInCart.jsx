@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addProduct, deleteProduct, decreaseProduct } from "../redux/slices/cartSlice";
+import { addProduct, deleteProduct, decreaseProduct } from "../../redux/slices/cartSlice";
 
 function ProductInCart({ product }) {
   const dispatch = useDispatch();
@@ -24,7 +24,8 @@ function ProductInCart({ product }) {
   };
 
   return (
-    <div className="cart__item">
+    <div className="cart__item-wrapper">
+      <div className="cart__item">
       <div className="cart__item-img">
         <img className="product-card__image" src={imageUrl} alt="Roll" />
       </div>
@@ -99,6 +100,7 @@ function ProductInCart({ product }) {
           </svg>
         </div>
       </div>
+    </div>
     </div>
   );
 }

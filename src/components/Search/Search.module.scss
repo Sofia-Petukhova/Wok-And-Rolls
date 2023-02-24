@@ -4,14 +4,17 @@
 }
 
 .input {
-  border: 1px solid rgba(150, 28, 226, 0.5);
+  border: 1px solid rgba(150, 28, 226);
+  
+  background-color: #fcfcfc;
   font-size: 16px;
   padding: 13px 15px 13px 42px;
   width: 350px;
   border-radius: 30px;
 
   &:focus {
-    border: 1px solid rgb(150, 28, 226, 0.8);
+    border: 1px solid rgb(123, 23, 162);
+    background-color: #ffffff;
   }
 }
 

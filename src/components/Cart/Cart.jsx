@@ -7,7 +7,7 @@ import {
   selectTotalCount,
   selectTotalPrice,
 } from "../../redux/slices/cartSlice";
-import ProductInCart from "../ProductInCart";
+import ProductInCart from "./ProductInCart";
 
 import emptyCart from "../../img/empty-cart.png"
 
@@ -125,7 +125,8 @@ const Cart = () => {
               Сумма заказа: <b>{totalPrice} ₽</b>{" "}
             </span>
           </div>
-          <div className="cart__bottom-buttons">
+          {products.length !== 0 && 
+            <div className="cart__bottom-buttons">
             <Link
               to="/"
               className="button button--outline button--add go-back-btn"
@@ -151,6 +152,7 @@ const Cart = () => {
               <span>Оплатить сейчас</span>
             </div>
           </div>
+          }
         </div>
       </div>
     </div>
