@@ -7,29 +7,35 @@ function ProductCard({ id, imageUrl, title, sauces, amount, price }) {
   const products = useSelector(selectProducts);
   const [activeSauce, setActiveSauce] = useState(sauces[0]);
   const [activeAmount, setActiveAmount] = useState(0);
+  const [activePrice, setActivePrice] = useState(price[0]);
   const isSaucesLength = sauces.length !== 0;
-  
+
+  const onClickAmount = (index) => {
+    setActiveAmount(index);
+    setActivePrice(price[index]);
+  };
+
   const onClickAdd = () => {
     const product = {
       id,
       title,
-      price,
+      price: activePrice,
       imageUrl,
       sauce: activeSauce,
-      amount: activeAmount,
+      amount: amount[activeAmount],
     };
     dispatch(addProduct(product));
   };
 
-const handleProductCounter = () => {
-   const count = products.reduce((acc, product) => {
-    if (id === product.id) {
-      return acc = acc + product.count
-    }
-    return acc
-   }, 0)
-   return (count || 0)
-}
+  const handleProductCounter = () => {
+    const count = products.reduce((acc, product) => {
+      if (id === product.id) {
+        return (acc = acc + product.count);
+      }
+      return acc;
+    }, 0);
+    return count || 0;
+  };
 
   return (
     <div className="product-card-wrapper">
@@ -54,7 +60,7 @@ const handleProductCounter = () => {
             {amount.map((amount, index) => (
               <li
                 key={amount}
-                onClick={() => setActiveAmount(index)}
+                onClick={() => onClickAmount(index)}
                 className={activeAmount === index ? "active" : ""}
               >
                 {amount}
@@ -69,7 +75,7 @@ const handleProductCounter = () => {
               : "product-card__bottom-drink"
           }
         >
-          <div className="product-card__price">{price} ₽</div>
+          <div className="product-card__price">{activePrice} ₽</div>
           <button
             onClick={onClickAdd}
             className="button button--outline button--add"
