@@ -40,7 +40,7 @@ const Cart = () => {
           </div>
         </div>
         <div className="content__items">
-          {products.length === 0 ? (
+          {isEmpty ? (
             <CartEmpty/>
           ) : (
             <>
