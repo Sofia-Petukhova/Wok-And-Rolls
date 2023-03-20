@@ -3,8 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import logo from "../../img/logo.png";
-import { selectTotalCount, selectTotalPrice } from "../../redux/slices/cartSlice";
+import {
+  selectTotalCount,
+  selectTotalPrice,
+} from "../../redux/slices/cartSlice";
 import { setCategory } from "../../redux/slices/filterSlice";
+import Button from "../Button/Button";
 import CartIcon from "../Icons/CartIcon";
 import Search from "../Search/Search.jsx";
 
@@ -14,10 +18,12 @@ function Header() {
   const totalCount = useSelector(selectTotalCount);
 
   const resetCategory = () => {
-    dispatch(setCategory({
-      categoryId: 0,
-      categoryTitle: 'Все',
-    }));
+    dispatch(
+      setCategory({
+        categoryId: 0,
+        categoryTitle: "Все",
+      })
+    );
   };
 
   return (
@@ -34,11 +40,13 @@ function Header() {
         </Link>
         <Search />
         <div className="header__cart">
-          <Link to="/cart" className="button button--cart">
-            <span>{totalPrice} ₽</span>
-            <div className="button__delimiter"></div>
-            <CartIcon/>
-            <span>{totalCount}</span>
+          <Link to="/cart">
+            <Button className="button--cart">
+              <span>{totalPrice} ₽</span>
+              <div className="button__delimiter"></div>
+              <CartIcon />
+              <span>{totalCount}</span>
+            </Button>
           </Link>
         </div>
       </div>

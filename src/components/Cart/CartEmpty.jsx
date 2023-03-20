@@ -1,6 +1,7 @@
 import React from "react";
 import emptyCart from "../../img/empty-cart.png";
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
 
 const CartEmpty = () => {
   return (
@@ -11,8 +12,10 @@ const CartEmpty = () => {
           <div className="empty-cart__wrapper__text">
             Упс! Ваша корзина пуста 😟
           </div>
-          <Link to="/" className="empty-cart__wrapper__button">
-            Назад за покупками
+          <Link to="/">
+            <Button>
+              <span>Назад за покупками</span>
+            </Button>
           </Link>
         </div>
       </div>

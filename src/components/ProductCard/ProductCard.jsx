@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addProduct, selectProducts } from "../../redux/slices/cartSlice";
+import Button from "../Button/Button";
 import PlusIcon from "../Icons/PlusIcon";
 
 function ProductCard({ id, imageUrl, title, sauces, amount, price }) {
@@ -10,7 +11,7 @@ function ProductCard({ id, imageUrl, title, sauces, amount, price }) {
   const [activeAmount, setActiveAmount] = useState(0);
   const [activePrice, setActivePrice] = useState(price[0]);
   const isSaucesLength = sauces.length !== 0;
-
+  
   const onClickAmount = (index) => {
     setActiveAmount(index);
     setActivePrice(price[index]);
@@ -77,14 +78,11 @@ function ProductCard({ id, imageUrl, title, sauces, amount, price }) {
           }
         >
           <div className="product-card__price">{activePrice} ₽</div>
-          <button
-            onClick={onClickAdd}
-            className="button button--outline button--add"
-          >
+          <Button onClick={onClickAdd} className="button--outline button--add">
             <PlusIcon />
             <span>Добавить</span>
             <i>{handleProductCounter()}</i>
-          </button>
+          </Button>
         </div>
       </div>
     </div>

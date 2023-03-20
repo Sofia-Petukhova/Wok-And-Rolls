@@ -9,11 +9,11 @@ import {
 } from "../../redux/slices/cartSlice";
 import ProductInCart from "./ProductInCart";
 
-import CartEmpty from "./CartEmpty"
+import CartEmpty from "./CartEmpty";
 import CartIcon from "../Icons/CartIcon";
 import TrashIcon from "../Icons/TrashIcon";
 import ArrowBackIcon from "../Icons/ArrowBackIcon";
-
+import Button from "../Button/Button";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -41,7 +41,7 @@ const Cart = () => {
         </div>
         <div className="content__items">
           {isEmpty ? (
-            <CartEmpty/>
+            <CartEmpty />
           ) : (
             <>
               {products.map((product, index) => (
@@ -64,16 +64,15 @@ const Cart = () => {
           </div>
           {products.length !== 0 && (
             <div className="cart__bottom-buttons">
-              <Link
-                to="/"
-                className="button button--outline button--add go-back-btn"
-              >
-                <ArrowBackIcon/>
-                <span>Вернуться назад</span>
+              <Link to="/">
+                <Button className="button--outline button--add go-back-btn">
+                  <ArrowBackIcon />
+                  <span>Вернуться назад</span>
+                </Button>
               </Link>
-              <div className="button pay-btn">
+              <Button>
                 <span>Оплатить сейчас</span>
-              </div>
+              </Button>
             </div>
           )}
         </div>
