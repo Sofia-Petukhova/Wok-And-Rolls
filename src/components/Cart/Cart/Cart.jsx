@@ -6,14 +6,14 @@ import {
   selectProducts,
   selectTotalCount,
   selectTotalPrice,
-} from "../../redux/slices/cartSlice";
-import ProductInCart from "./ProductInCart";
+} from "../../../redux/slices/cartSlice";
+import ProductInCart from "../ProductInCart/ProductInCart";
 
-import CartEmpty from "./CartEmpty";
-import CartIcon from "../Icons/CartIcon";
-import TrashIcon from "../Icons/TrashIcon";
-import ArrowBackIcon from "../Icons/ArrowBackIcon";
-import Button from "../Button/Button";
+import CartEmpty from "../CartEmpty/CartEmpty";
+import CartIcon from "../../Icons/CartIcon";
+import TrashIcon from "../../Icons/TrashIcon";
+import Button from "../../Button/Button";
+import styles from "../Cart/Cart.module.scss"
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -26,20 +26,20 @@ const Cart = () => {
     dispatch(cleanCart());
   };
 
-  return (
-    <div className="container container--cart">
-      <div className="cart">
-        <div className="cart__top">
-          <h2 className="content__title">
+  return ( 
+    <div className={styles.container__cart}>
+      <div className={styles.cart}>
+        <div className={styles.cart__top}>
+          <h2 className={styles.content__title}>
             <CartIcon />
             Корзина
           </h2>
-          <div className={isEmpty ? "cart__clear__disabled" : "cart__clear"}>
+          <div className={isEmpty ? styles.cart__clear__disabled : styles.cart__clear}>
             <TrashIcon />
             <span onClick={OnClickCleanCart}>Очистить корзину</span>
           </div>
         </div>
-        <div className="content__items">
+        <div className={styles.content__items}>
           {isEmpty ? (
             <CartEmpty />
           ) : (
@@ -53,24 +53,23 @@ const Cart = () => {
             </>
           )}
         </div>
-        <div className="cart__bottom">
-          <div className="cart__bottom-details">
+        <div className={styles.cart__bottom}>
+          <div className={styles.cart__bottom__details}>
             <span>
               Всего: <b>{totalCount} шт.</b>
             </span>
             <span>
               Сумма заказа: <b>{totalPrice} ₽</b>
-            </span>
+            </span> 
           </div>
           {products.length !== 0 && (
-            <div className="cart__bottom-buttons">
+            <div className={styles.cart__bottom__buttons}>
               <Link to="/">
-                <Button className="button--outline button--add go-back-btn">
-                  <ArrowBackIcon />
+                <Button className={styles.go_back_btn}>
                   <span>Вернуться назад</span>
                 </Button>
               </Link>
-              <Button>
+              <Button className={styles.pay__btn}>
                 <span>Оплатить сейчас</span>
               </Button>
             </div>

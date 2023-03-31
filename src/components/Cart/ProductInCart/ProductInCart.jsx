@@ -4,12 +4,13 @@ import {
   addProduct,
   deleteProduct,
   decreaseProduct,
-} from "../../redux/slices/cartSlice";
-import Button from "../Button/Button";
-import CrossIcon from "../Icons/CrossIcon";
-import MinusIcon from "../Icons/MinusIcon";
-import PlusIcon from "../Icons/PlusIcon";
-
+} from "../../../redux/slices/cartSlice";
+import Button from "../../Button/Button";
+import CrossIcon from "../../Icons/CrossIcon";
+import MinusIcon from "../../Icons/MinusIcon";
+import PlusIcon from "../../Icons/PlusIcon";
+import styles from "../ProductInCart/ProductInCart.module.scss";
+ 
 function ProductInCart({ product }) {
   const dispatch = useDispatch();
   const { imageUrl, title, sauce, amount, price, count } = product;
@@ -29,39 +30,39 @@ function ProductInCart({ product }) {
   };
 
   return (
-    <div className="cart__item-wrapper">
-      <div className="cart__item">
-        <div className="cart__item-img">
-          <img className="product-card__image" src={imageUrl} alt="Roll" />
+    <div className={styles.cart__item__wrapper}>
+      <div className={styles.cart__item}>
+        <div className={styles.cart__item__img}>
+          <img className={styles.product__card__image} src={imageUrl} alt="Roll" />
         </div>
-        <div className="cart__item-info">
+        <div className={styles.cart__item__info}>
           <h3>{title}</h3>
           <p>
             {sauce}, {amount}.
           </p>
         </div>
-        <div className="cart__item-count">
+        <div className={styles.cart__item__count}>
           <Button
             onClick={onClickMinus}
-            className=" button--outline button--circle cart__item-count-minus"
+            className={styles.button__minus}
           >
             <MinusIcon />
           </Button>
-          <b>{count}</b>
+          <b>{count}</b> 
           <Button
             onClick={onClickPlus}
-            className="button--outline button--circle cart__item-count-plus"
+            className={styles.button__plus}
           >
-            <PlusIcon />
+            <PlusIcon /> 
           </Button>
         </div>
-        <div className="cart__item-price">
+        <div className={styles.cart__item__price}>
           <b>{price * count} ₽</b>
         </div>
-        <div className="cart__item-remove">
+        <div className={styles.cart__item__remove}>
           <Button
             onClick={onClickDelete}
-            className="button--outline button--circle"
+            className={styles.button__remove}
           >
             <CrossIcon />
           </Button>

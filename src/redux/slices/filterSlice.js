@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 export const selectCategoryId = ({ filter }) => filter.categoryId;
+export const selectSort = ({ filter }) => filter.sort;
 export const selectSortProperty = ({ filter }) => filter.sort.sortProperty;
 export const selectCurrentPage = ({ filter }) => filter.currentPage;
 export const selectCategoryTitle = ({ filter }) => filter.categoryTitle;
+
 
 const initialState = {
   categoryId: 0,

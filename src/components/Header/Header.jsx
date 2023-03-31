@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import styles from "../Header/Header.module.scss";
 
 import logo from "../../img/logo.png";
 import {
@@ -27,10 +28,10 @@ function Header() {
   };
 
   return (
-    <div className="header">
-      <div className="container">
+    <div className={styles.header}>
+      <div className={styles.container}>
         <Link to="/" onClick={resetCategory}>
-          <div className="header__logo">
+          <div className={styles.header__logo}>
             <img width="80" src={logo} alt="roll logo" />
             <div>
               <h1>Wok And Rolls</h1>
@@ -38,15 +39,17 @@ function Header() {
             </div>
           </div>
         </Link>
-        <Search />
-        <div className="header__cart">
+        <div className={styles.wrapper}>
+          <Search />
           <Link to="/cart">
-            <Button className="button--cart">
-              <span>{totalPrice} ₽</span>
-              <div className="button__delimiter"></div>
-              <CartIcon />
-              <span>{totalCount}</span>
-            </Button>
+            <div className={styles.header__cart}>
+              <Button className={styles.button__cart}>
+                <span>{totalPrice} ₽</span>
+                <div className={styles.button__delimiter}></div>
+                <CartIcon />
+                <span>{totalCount}</span>
+              </Button>
+            </div>
           </Link>
         </div>
       </div>

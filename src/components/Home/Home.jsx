@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import styles from "../Home/Home.module.scss" 
 
 import { SearchContext } from "../../App";
 import Categories from "../Categories/Categories";
@@ -70,13 +71,13 @@ const Home = () => {
   ));
 
   return (
-    <div className="container">
-      <div className="content__top">
+    <div className={styles.container}>
+      <div className={styles.content__top}>
         <Categories categoryId={categoryId} onClickCategory={onClickCategory} />
         <Sort />
       </div>
-      <h2 className="content__title">{activCategory}</h2>
-      <div className="content__items">{isLoading ? placeholders : dishes}</div>
+      <h2 className={styles.content__title}>{activCategory}</h2>
+      <div className={styles.content__items}>{isLoading ? placeholders : dishes}</div>
       <Pagination currentPage={currentPage} onChangePage={onChangePage} />
     </div>
   );

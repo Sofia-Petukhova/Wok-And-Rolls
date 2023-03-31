@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./scss/app.scss";
 import Header from "./components/Header/Header.jsx";
 import Home from "./components/Home/Home.jsx";
-import Cart from "./components/Cart/Cart.jsx";
+import Cart from "./components/Cart/Cart/Cart.jsx";
 import NotFound from "./components/NotFound/NotFound.jsx";
 import { Routes, Route } from "react-router-dom";
 

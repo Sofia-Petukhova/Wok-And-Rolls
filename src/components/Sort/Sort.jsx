@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { setSort } from "../../redux/slices/filterSlice";
+import { selectSort, setSort } from "../../redux/slices/filterSlice";
 import ArrowSortIcon from "../Icons/ArrowSortIcon";
+import useHandleClickOutside from "../Hook/useHandleClickOutside";
+import styles from "./Sort.module.scss";
 
 function Sort() {
   const dispatch = useDispatch();
-  const sort = useSelector(({ filter }) => filter.sort);
-
+  const sort = useSelector(selectSort);
   const [open, setOpen] = useState(false);
   const sortTypes = [
     { name: "популярности ↓", sortProperty: "rating" },
@@ -17,32 +18,38 @@ function Sort() {
     { name: "алфавиту ↑", sortProperty: "-title" },
   ];
 
+  useHandleClickOutside(["sort"], () => {
+    setOpen(false);
+  });
+
   const handleChangeSortType = (obj) => {
     dispatch(setSort(obj));
     setOpen(false);
   };
-
   return (
-    <div className="sort">
-      <div className="sort__label">
-        <div className="sort__label-wrapper">
-          <ArrowSortIcon/>
+    <div className={styles.sort}>
+      <div className={styles.sort__label}>
+        <div>
+          <ArrowSortIcon />
           <b>Сортировка по:</b>
         </div>
         <span onClick={() => setOpen(!open)}>{sort.name}</span>
       </div>
       {open && (
-        <div className="sort__popup">
+        <div className={styles.sort__popup}>
           <ul>
-            {sortTypes.map((item, index) => (
+            {sortTypes.map((sortType, index) => (
               <li
                 key={index}
-                onClick={() => handleChangeSortType(item)}
+                onClick={(e) => handleChangeSortType(sortType)}
                 className={
-                  sort.sortProperty === item.sortProperty ? "active" : ""
+                  sort.sortProperty === sortType.sortProperty
+                    ? styles.selected
+                    : null
                 }
+                id="sort"
               >
-                {item.name}
+                {sortType.name}
               </li>
             ))}
           </ul>

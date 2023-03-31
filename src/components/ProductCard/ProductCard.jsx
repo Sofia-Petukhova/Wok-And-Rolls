@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProduct, selectProducts } from "../../redux/slices/cartSlice";
 import Button from "../Button/Button";
 import PlusIcon from "../Icons/PlusIcon";
+import styles from "./ProductCard.module.scss"
 
 function ProductCard({ id, imageUrl, title, sauces, amount, price }) {
   const dispatch = useDispatch();
@@ -40,30 +41,30 @@ function ProductCard({ id, imageUrl, title, sauces, amount, price }) {
   };
 
   return (
-    <div className="product-card-wrapper">
-      <div className="product-card">
-        <img className="product-card__image" src={imageUrl} alt="roll" />
-        <h4 className="product-card__title">{title}</h4>
-        <div className="product-card__selector">
+    <div className={styles.product_card_wrapper}>
+      <div className={styles.product_card}>
+        <img className={styles.product_card__image} src={imageUrl} alt="roll" />
+        <h4 className={styles.product_card__title}>{title}</h4>
+        <div className={styles.product_card__selector}>
           {isSaucesLength && (
             <ul>
               {sauces.map((sauce) => (
                 <li
                   key={sauce}
                   onClick={() => setActiveSauce(sauce)}
-                  className={activeSauce === sauce ? "active" : ""}
+                  className={activeSauce === sauce ? styles.active : ""}
                 >
                   {sauce}
                 </li>
               ))}
             </ul>
           )}
-          <ul className={!isSaucesLength ? "product-card__amount-drink" : ""}>
+          <ul className={!isSaucesLength ? styles.product_card__amount_drink : ""}>
             {amount.map((amount, index) => (
               <li
                 key={amount}
                 onClick={() => onClickAmount(index)}
-                className={activeAmount === index ? "active" : ""}
+                className={activeAmount === index ? styles.active : ""}
               >
                 {amount}
               </li>
@@ -73,12 +74,12 @@ function ProductCard({ id, imageUrl, title, sauces, amount, price }) {
         <div
           className={
             isSaucesLength
-              ? "product-card__bottom"
-              : "product-card__bottom-drink"
+              ? styles.product_card__bottom
+              : styles.product_card__bottom_drink
           }
         >
-          <div className="product-card__price">{activePrice} ₽</div>
-          <Button onClick={onClickAdd} className="button--outline button--add">
+          <div className={styles.product_card__price}>{activePrice} ₽</div>
+          <Button onClick={onClickAdd} className={styles.button_add}>
             <PlusIcon />
             <span>Добавить</span>
             <i>{handleProductCounter()}</i>

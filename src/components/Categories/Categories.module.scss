@@ -1,4 +1,4 @@
-@import '../variables';
+@import "../../scss/normalize";
 
 .categories {
   ul {
@@ -7,13 +7,13 @@
     li:not(:last-child) {
       margin-right: 10px;
     }
-    
+
     li {
-      background-color:#ffffff;
+      background-color: #ffffff;
       padding: 13px 30px;
       border-radius: 30px;
       border: 1px solid darken(#f9f9f9, 10%);
-      
+
       font-weight: bold;
       cursor: pointer;
       transition: background-color 0.1s ease-in-out;
@@ -27,9 +27,32 @@
         background-color: darken(#f9f9f9, 5%);
       }
 
-      &.active {
+      &.selected {
         background-color: #282828;
         color: #fff;
+      }
+    }
+  }
+
+  @media (max-width: 1260px) {
+    width: 100%;
+    overflow: auto;
+
+    ul {
+      width: 680px;
+    }
+  }
+
+  @media (max-width: 824px) {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+
+    ul {
+      justify-content: center;
+      width: 550px;
+      li {
+        padding: 8px 20px;
       }
     }
   }
