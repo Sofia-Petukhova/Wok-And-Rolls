@@ -58,17 +58,16 @@
     line-height: 23px;
     padding: 12px 25px;
     background-color: rgba(143, 65, 214, 0.95);
-    
+
     border: 1px solid #fcfcfc;
     border-radius: 30px;
     padding: 10px 20px;
     min-width: 155px;
     cursor: pointer;
- 
+
     svg {
       margin-right: 8px;
       margin-bottom: 1px;
-      
     }
 
     span {
@@ -78,10 +77,9 @@
       color: #fff;
     }
 
-    &:hover { 
+    &:hover {
       background-color: rgb(124, 55, 188);
     }
-
   }
 
   .button__delimiter {

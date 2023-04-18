@@ -10,7 +10,7 @@ import CrossIcon from "../../Icons/CrossIcon";
 import MinusIcon from "../../Icons/MinusIcon";
 import PlusIcon from "../../Icons/PlusIcon";
 import styles from "../ProductInCart/ProductInCart.module.scss";
- 
+
 function ProductInCart({ product }) {
   const dispatch = useDispatch();
   const { imageUrl, title, sauce, amount, price, count } = product;
@@ -33,7 +33,11 @@ function ProductInCart({ product }) {
     <div className={styles.cart__item__wrapper}>
       <div className={styles.cart__item}>
         <div className={styles.cart__item__img}>
-          <img className={styles.product__card__image} src={imageUrl} alt="Roll" />
+          <img
+            className={styles.product__card__image}
+            src={imageUrl}
+            alt="Roll"
+          />
         </div>
         <div className={styles.cart__item__info}>
           <h3>{title}</h3>
@@ -42,28 +46,19 @@ function ProductInCart({ product }) {
           </p>
         </div>
         <div className={styles.cart__item__count}>
-          <Button
-            onClick={onClickMinus}
-            className={styles.button__minus}
-          >
+          <Button onClick={onClickMinus} className={styles.button__minus}>
             <MinusIcon />
           </Button>
-          <b>{count}</b> 
-          <Button
-            onClick={onClickPlus}
-            className={styles.button__plus}
-          >
-            <PlusIcon /> 
+          <b>{count}</b>
+          <Button onClick={onClickPlus} className={styles.button__plus}>
+            <PlusIcon />
           </Button>
         </div>
         <div className={styles.cart__item__price}>
           <b>{price * count} ₽</b>
         </div>
         <div className={styles.cart__item__remove}>
-          <Button
-            onClick={onClickDelete}
-            className={styles.button__remove}
-          >
+          <Button onClick={onClickDelete} className={styles.button__remove}>
             <CrossIcon />
           </Button>
         </div>

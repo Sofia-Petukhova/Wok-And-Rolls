@@ -40,6 +40,3 @@ const TrashIcon = () => (
 );
 
 export default TrashIcon;
-
-
-

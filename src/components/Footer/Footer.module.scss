@@ -1,0 +1,93 @@
+@import "../../scss/variables";
+
+.footer {
+  background-color: darken($color: $gray-line, $amount: 90);
+  padding: 20px 30px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container:last-child {
+  margin-top: 20px;
+  align-items: center;
+}
+
+.link,
+span {
+  color: rgb(240, 240, 240);
+}
+
+.link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.list,
+.mobile_app_links {
+  margin-top: 20px;
+}
+
+.mobile_app_links {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile_link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.mobile_link_icons {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile_link {
+  span:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+
+  &_title {
+    margin-right: 10px;
+  }
+
+  &_icons {
+    display: flex;
+    justify-content: space-between;
+    width: 130px;
+  }
+
+  &_link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 37px;
+    width: 37px;
+    border-radius: 50%;
+    background-color: #6d6d6d;
+  }
+}

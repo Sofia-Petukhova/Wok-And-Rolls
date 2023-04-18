@@ -19,6 +19,3 @@ const ArrowBackIcon = () => (
 );
 
 export default ArrowBackIcon;
-
-
-

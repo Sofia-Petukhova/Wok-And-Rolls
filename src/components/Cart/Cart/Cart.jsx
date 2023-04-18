@@ -13,7 +13,7 @@ import CartEmpty from "../CartEmpty/CartEmpty";
 import CartIcon from "../../Icons/CartIcon";
 import TrashIcon from "../../Icons/TrashIcon";
 import Button from "../../Button/Button";
-import styles from "../Cart/Cart.module.scss"
+import styles from "../Cart/Cart.module.scss";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const Cart = () => {
     dispatch(cleanCart());
   };
 
-  return ( 
+  return (
     <div className={styles.container__cart}>
       <div className={styles.cart}>
         <div className={styles.cart__top}>
@@ -34,7 +34,11 @@ const Cart = () => {
             <CartIcon />
             Корзина
           </h2>
-          <div className={isEmpty ? styles.cart__clear__disabled : styles.cart__clear}>
+          <div
+            className={
+              isEmpty ? styles.cart__clear__disabled : styles.cart__clear
+            }
+          >
             <TrashIcon />
             <span onClick={OnClickCleanCart}>Очистить корзину</span>
           </div>
@@ -60,7 +64,7 @@ const Cart = () => {
             </span>
             <span>
               Сумма заказа: <b>{totalPrice} ₽</b>
-            </span> 
+            </span>
           </div>
           {products.length !== 0 && (
             <div className={styles.cart__bottom__buttons}>

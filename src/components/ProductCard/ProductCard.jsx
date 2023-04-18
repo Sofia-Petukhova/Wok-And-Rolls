@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addProduct, selectProducts } from "../../redux/slices/cartSlice";
 import Button from "../Button/Button";
 import PlusIcon from "../Icons/PlusIcon";
-import styles from "./ProductCard.module.scss"
+import styles from "./ProductCard.module.scss";
 
 function ProductCard({ id, imageUrl, title, sauces, amount, price }) {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ function ProductCard({ id, imageUrl, title, sauces, amount, price }) {
   const [activeAmount, setActiveAmount] = useState(0);
   const [activePrice, setActivePrice] = useState(price[0]);
   const isSaucesLength = sauces.length !== 0;
-  
+
   const onClickAmount = (index) => {
     setActiveAmount(index);
     setActivePrice(price[index]);
@@ -59,7 +59,9 @@ function ProductCard({ id, imageUrl, title, sauces, amount, price }) {
               ))}
             </ul>
           )}
-          <ul className={!isSaucesLength ? styles.product_card__amount_drink : ""}>
+          <ul
+            className={!isSaucesLength ? styles.product_card__amount_drink : ""}
+          >
             {amount.map((amount, index) => (
               <li
                 key={amount}

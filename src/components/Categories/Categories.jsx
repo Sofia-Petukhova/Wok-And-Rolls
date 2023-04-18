@@ -1,8 +1,23 @@
 import React from "react";
-import styles from "./Categories.module.scss"
+import styles from "./Categories.module.scss"; 
+import { selectCategoryId, setCategory, setCurrentPage } from "../../redux/slices/filterSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../redux/slices/productsSlice";
 
-function Categories({ categoryId, onClickCategory }) {
+function Categories() {
+  const dispatch = useDispatch();
   const categories = ["Все", "Сеты", "Роллы", "Суши", "Wok", "Напитки"];
+  const categoryId = useSelector(selectCategoryId);
+  const onClickCategory = (categoryTitle, categoryId) => {
+    dispatch(
+      setCategory({
+        categoryId,
+        categoryTitle,
+      })
+    );
+    dispatch(setCurrentPage(1));
+    dispatch(fetchProducts())
+  };
  
   return (
     <div className={styles.categories}>
@@ -12,7 +27,7 @@ function Categories({ categoryId, onClickCategory }) {
             key={index}
             onClick={() => onClickCategory(category, index)}
             className={categoryId === index ? styles.selected : ""}
-          >
+          > 
             {category}
           </li>
         ))}

@@ -1,31 +1,33 @@
-import React, { useContext, useRef, useCallback, useState } from "react";
+import React, { useRef, useCallback } from "react";
 import debounce from "lodash.debounce";
-import { SearchContext } from "../../App";
 import styles from "../Search/Search.module.scss";
 import SearchIcon from "../Icons/SearchIcon";
 import SearchCrossIcon from "../Icons/SearchCrossIcon";
+import { selectSearchValue, setSearchValue } from "../../redux/slices/filterSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchProducts } from "../../redux/slices/productsSlice";
 
 const Search = () => {
-  const [value, setValue] = useState("");
-  const { setSearchValue } = useContext(SearchContext);
+  const dispatch = useDispatch();
   const inputRef = useRef();
-
+  const value = useSelector(selectSearchValue);
+ 
   const onClickClear = () => {
-    setSearchValue("");
-    setValue("");
+    dispatch(setSearchValue(""));
     inputRef.current.focus();
   };
 
   const updateSearchValue = useCallback(
     debounce((str) => {
-      setSearchValue(str);
+      dispatch(setSearchValue(str));
     }, 250),
     []
   );
 
-  const onChangeInput = (event) => {
-    setValue(event.target.value);
-    updateSearchValue(event.target.value);
+  const onChangeSearch = (str) => {
+    dispatch(setSearchValue(str));
+    updateSearchValue(str);
+    dispatch(fetchProducts());
   };
 
   return (
@@ -36,7 +38,7 @@ const Search = () => {
       <input
         ref={inputRef}
         value={value}
-        onChange={onChangeInput}
+        onChange={(e) => onChangeSearch(e.target.value)}
         className={styles.input}
         placeholder="Поиск по названию..."
       />
@@ -44,8 +46,7 @@ const Search = () => {
         <div onClick={onClickClear} className={styles.clearIcon}>
           <SearchCrossIcon />
         </div>
-        
-      )}
+      )} 
     </div>
   );
 };
