@@ -3,14 +3,14 @@ import ReactPaginate from "react-paginate";
 import styles from "./Pagination.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentPage, setCurrentPage } from "../../redux/slices/filterSlice";
-import { fetchProducts } from "../../redux/slices/productsSlice";
+import { requestProducts } from "../../redux/slices/productsSlice";
 
 const Pagination = () => {
   const dispatch = useDispatch();
   const currentPage = useSelector(selectCurrentPage);
   const onChangePage = (number) => {
     dispatch(setCurrentPage(number));
-    dispatch(fetchProducts())
+    dispatch(requestProducts())
   };
   return (
     <ReactPaginate

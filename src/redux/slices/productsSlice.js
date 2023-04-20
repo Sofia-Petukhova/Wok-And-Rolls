@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
-export const fetchProducts = createAsyncThunk(
-  "products/fetchProducts",
+export const requestProducts = createAsyncThunk(
+  "products/requestProducts",
   async (_, { rejectWithValue, getState }) => {
     try {
       const state = getState();
@@ -12,16 +13,12 @@ export const fetchProducts = createAsyncThunk(
       const category =state.filter.categoryId > 0 ? `category=${state.filter.categoryId}` : "";
       const search = state.filter.searchValue ? `&search=${state.filter.searchValue}` : "";
 
-      const response = await fetch(
+      const response = await axios.get(
         `https://63a6c641f8f3f6d4ab11fc8d.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&${order}${search}`
-      );
+      )
+        console.log(response)
+      return response.data;
 
-      if (!response.ok) {
-        throw new Error("Error");
-      }
-
-      const data = await response.json();
-      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -39,15 +36,15 @@ const productSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [fetchProducts.pending]: (state) => {
+    [requestProducts.pending]: (state) => {
       state.status = "pending";
       state.error = null;
     },
-    [fetchProducts.fulfilled]: (state, action) => {
+    [requestProducts.fulfilled]: (state, action) => {
       state.status = "fulfilled";
       state.products = action.payload;
     },
-    [fetchProducts.rejected]: (state, action) => {
+    [requestProducts.rejected]: (state, action) => {
       state.status = "rejected";
       state.error = action.payload;
     },

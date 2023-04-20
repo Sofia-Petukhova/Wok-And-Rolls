@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Categories.module.scss"; 
 import { selectCategoryId, setCategory, setCurrentPage } from "../../redux/slices/filterSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../../redux/slices/productsSlice";
+import { requestProducts } from "../../redux/slices/productsSlice";
 
 function Categories() {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ function Categories() {
       })
     );
     dispatch(setCurrentPage(1));
-    dispatch(fetchProducts())
+    dispatch(requestProducts())
   };
  
   return (

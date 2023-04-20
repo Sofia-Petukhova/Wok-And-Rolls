@@ -4,7 +4,7 @@ import { selectSort, setSort } from "../../redux/slices/filterSlice";
 import ArrowSortIcon from "../Icons/ArrowSortIcon";
 import useHandleClickOutside from "../Hook/useHandleClickOutside";
 import styles from "./Sort.module.scss";
-import { fetchProducts } from "../../redux/slices/productsSlice";
+import { requestProducts } from "../../redux/slices/productsSlice";
 
 function Sort() {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ function Sort() {
   const handleChangeSortType = (sortType) => {
     dispatch(setSort(sortType));
     setOpen(false);
-    dispatch(fetchProducts())
+    dispatch(requestProducts())
   };
   return (
     <div className={styles.sort}>

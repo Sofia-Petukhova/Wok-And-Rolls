@@ -5,7 +5,7 @@ import SearchIcon from "../Icons/SearchIcon";
 import SearchCrossIcon from "../Icons/SearchCrossIcon";
 import { selectSearchValue, setSearchValue } from "../../redux/slices/filterSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProducts } from "../../redux/slices/productsSlice";
+import { requestProducts } from "../../redux/slices/productsSlice";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const Search = () => {
   const onChangeSearch = (str) => {
     dispatch(setSearchValue(str));
     updateSearchValue(str);
-    dispatch(fetchProducts());
+    dispatch(requestProducts());
   };
 
   return (

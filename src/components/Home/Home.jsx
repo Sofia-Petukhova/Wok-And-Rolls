@@ -9,7 +9,7 @@ import Placeholder from "../ProductCard/Placeholder.jsx";
 import Pagination from "../Pagination/Pagination.jsx";
 
 import { selectCategoryTitle } from "../../redux/slices/filterSlice";
-import { fetchProducts } from "../../redux/slices/productsSlice";
+import { requestProducts } from "../../redux/slices/productsSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Home = () => {
   const { status, error } = useSelector((state) => state.products);
 
   useEffect(() => {
-    dispatch(fetchProducts());
+    dispatch(requestProducts());
     window.scrollTo(0, 0);
   }, []);
 
