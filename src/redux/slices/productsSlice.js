@@ -14,7 +14,7 @@ export const requestProducts = createAsyncThunk(
       const search = state.filter.searchValue ? `&search=${state.filter.searchValue}` : "";
 
       const response = await axios.get(
-        `https://63a6c641f8f3f6d4ab11fc8d.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&${order}${search}`
+        `https://63a6c641f8f3f6d4ab11fc8d.mockapi.io/items?page=${currentPage}&limit=8&${category}&sortBy=${sortBy}&order=${order}${search}`
       )
         console.log(response)
       return response.data;
