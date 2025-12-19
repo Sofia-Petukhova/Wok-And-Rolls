@@ -169,6 +169,7 @@
         &:hover {
           background-color: darken($color: $gray-line, $amount: 90);
           border-color: darken($color: $gray-line, $amount: 90);
+          cursor: pointer;
 
           span {
             color: $gray-line;
@@ -217,6 +218,7 @@
         }
         &:hover {
           background-color: rgb(146, 26, 220);
+          cursor: pointer;
         }
 
         &:active {
